@@ -1,6 +1,6 @@
 package com.Medisoft.Medisoft.Controllers;
 
-import com.Medisoft.Medisoft.Domain.Persona;
+import com.Medisoft.Medisoft.Domain.RequestPersona;
 import com.Medisoft.Medisoft.Services.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +18,9 @@ public class PersonaController {
 
     @PostMapping(value = "/ordenar", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> postPersona(@RequestBody Persona persona) {
-        usuarioServiceImpl.postPersona(persona);
+    public ResponseEntity<Object> postPersona(@RequestBody RequestPersona requestPersona) {
+
+        usuarioServiceImpl.postPersona(requestPersona);
 
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
